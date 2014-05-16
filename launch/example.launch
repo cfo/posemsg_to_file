@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="posemsg_to_file" type="posemsg_to_file_node" name="posemsg_to_file" clear_params="true" output="screen">
+    <param name="topic" value="/drdre/optitrack_corrected" type="str" />
+    <param name="invert_pose" value="false" />
+    <param name="topic_type" value="PoseStamped" type="str" />
+  </node>
+
+  <node pkg="rosbag" type="play" name="rosbag" args=" -r 1 --clock $(find Datasets)/rpg_circle_1/data/circle_1_2014-05-16_11-57-39.bag" />
+
+</launch>
